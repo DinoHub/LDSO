@@ -23,10 +23,29 @@ you. You can also follow the steps in this script manually (will
 compile DBoW3 and g2o first, and the ldso).
 
 ## 2. Usage
-- For AirSim
+
 ```
 $ ./bin/run_dso_tum_mono files=PATH/TO/IMAGES/ calib=PATH/TO/CALIBRATION/FILE mode=1 preset=0
 ```
+
+#### 2.1 Calibration File for Pre-Rectified Images
+See [sample calibration file](https://github.com/yx0123/LDSO/blob/master/AirSim-camera.txt)
+
+   Pinhole fx fy cx cy 0
+    in_width in_height
+    "crop" / "full" / "none" / "fx fy cx cy 0"
+    out_width out_height
+
+**Explanation:**
+Across all models `fx fy cx cy` denotes the focal length / principal point **relative to the image width / height**, 
+i.e., DSO computes the camera matrix `K` as
+
+		K(0,0) = width * fx
+		K(1,1) = height * fy
+		K(0,2) = width * cx - 0.5
+		K(1,2) = height * cy - 0.5
+
+
 
 
 
