@@ -1,4 +1,36 @@
-# LDSO: Direct Sparse Odometry with Loop Closure
+# LDSO: Direct Sparse Odometry with Loop Closure (adapted from original README)
+
+## 1. Installation
+## Dependencies
+
+### System dependencies
+
+There is a convenience script that will help you install the needed
+libraries in Ubuntu 16.04 and later, including `Eigen`, `glog`,
+`gtest`, `Suitesparse`, `OpenCV`, `libzip`.
+
+```
+./install_dependencies.sh
+```
+### Compile
+ 
+ ```
+ ./make_project.sh
+ ```
+
+This will build the thirdparty library and also ldso library for
+you. You can also follow the steps in this script manually (will
+compile DBoW3 and g2o first, and the ldso).
+
+## 2. Usage
+- For AirSim
+```
+$ ./bin/run_dso_tum_mono files=PATH/TO/IMAGES/ calib=PATH/TO/CALIBRATION/FILE mode=1 preset=0
+```
+
+
+
+# Original README below:
 
 ## Related Publications
 
